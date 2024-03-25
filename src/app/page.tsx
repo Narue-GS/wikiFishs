@@ -1,13 +1,14 @@
 
 import Image from "next/image";
-import sql from "../db"
-import FishList from "./components/fishList";
+import FishList from "./components/fishList"
+import { select } from "./service"
 
 export default async function Home() {
-  const data = await sql`SELECT * FROM fish`
+  const data = await select()
   
   return (
     <>
+
      <FishList list={data}/>
     </>
   );
