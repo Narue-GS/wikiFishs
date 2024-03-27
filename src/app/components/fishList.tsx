@@ -1,8 +1,6 @@
 'use client'
 
 import { useState } from "react";
-// import sql from "@/db"
-
 import { insert } from "../service";
 
 export default function FishList(props:{list:any[]}) {
@@ -15,11 +13,6 @@ export default function FishList(props:{list:any[]}) {
     score: 0,
     desc: '',
   })
-
-  // async function post() {
-  //   insert({id: +list[list.length-1].id + 1,name:"Tainha3", s_name:"Mugilidae3"})
-  //   setList([...await select()])
-  // }
 
   function post() {
     if(list.filter((i) => i.name == newFish.name || i.s_name == newFish.s_name).length){
