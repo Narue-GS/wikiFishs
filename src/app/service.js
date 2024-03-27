@@ -10,3 +10,7 @@ export async function select() {
   return await sql`SELECT * FROM fish`
 }
 
+  export async function delete_(id) {
+    return await sql`DELETE FROM fish WHERE id = ${id}` 
+  }
+
