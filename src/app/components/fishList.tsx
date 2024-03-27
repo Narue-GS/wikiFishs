@@ -31,6 +31,8 @@ export default function FishList(props:{list:any[]}) {
   } 
 
 
+
+
   return (
     <>
       {/* input box */}
@@ -51,7 +53,7 @@ export default function FishList(props:{list:any[]}) {
         <div className="max-h-[90vh] divide-y w-fit flex flex-col flex-wrap place-items-start">
           {
             list.map((i) => (
-              <div className="p-6 w-fit " key={i.id}>
+              <div className="p-6 w-fit cursor-pointer" key={i.id}>
                 <span>{i.id} - {i.name} - {i.score}</span>
                 <p>{i.s_name}</p>
               </div>
