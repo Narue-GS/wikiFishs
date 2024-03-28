@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { insert, delete_ } from "../service";
+import { insert, delete_, update } from "../service";
 
 import { IFish, deafultModalState } from "../types";
 
@@ -44,13 +44,19 @@ export default function FishList(props:{list:any[]}) {
     delete_(id)
     list = [...list.filter((i) => i.id != id)]
     setList(list)
-    setNewFish({...defaultFish, id:parseInt(list[list.length -1].id) + 1 || 0})
+    setNewFish({...defaultFish, id:parseInt(list[list.length -1]?.id) + 1 || 0})
+  }
+
+  function updateFish(fish:IFish) {
+    list = list.map((i) => i.id == fish.id ? fish : i)
+    setList(list)
+    update(fish)
   }
 
   return (
     <>
       {
-        modalState.display ? <FishModal deleteFish={deleteFish} close={() => setModalState(deafultModalState)} fish={modalState.data}/> : ""
+        modalState.display ? <FishModal update={updateFish} deleteFish={deleteFish} close={() => setModalState(deafultModalState)} fish={modalState.data}/> : ""
       }
 
       <h1 className="font-bold pl-4 text-3xl">Oba, bem vindo ao seu lugar de apreciação de peixes</h1>
