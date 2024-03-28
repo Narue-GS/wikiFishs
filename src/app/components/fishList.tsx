@@ -44,7 +44,7 @@ export default function FishList(props:{list:any[]}) {
     delete_(id)
     list = [...list.filter((i) => i.id != id)]
     setList(list)
-    setNewFish({...defaultFish, id:parseInt(list[list.length -1].id) + 1 || 0})
+    setNewFish({...defaultFish, id:parseInt(list[list.length -1]?.id) + 1 || 0})
   }
 
   return (
