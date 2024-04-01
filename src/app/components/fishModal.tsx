@@ -18,6 +18,7 @@ export default function FishModal({fish, close, deleteFish, update} : FishModalP
       <div className="bg-white z-10 w-[30%] h-fit ma-h-[80%] p-6 outline rounded-lg ">
         <input className="text-center w-full text-2xl" type="text" value={fishData.name} onChange={(e) => setFishData({...fishData, name:e.target.value})}/><br />
         <input className="text-center w-full opacity-80 focus:" type="text" value={fishData.s_name} onChange={(e) => setFishData({...fishData, s_name:e.target.value})}/>
+        <input className="text-center w-full opacity-80 focus:" type="number" value={fishData.score} onChange={(e) => setFishData({...fishData, score:parseFloat(e.target.value)})}/>
         <hr />
         <textarea className="w-full" name="" id="" value={fishData.desc} onChange={(e) => setFishData({...fishData, desc:e.target.value})}></textarea>
         <div className="border-t w-full flex gap-6 border-red-500">

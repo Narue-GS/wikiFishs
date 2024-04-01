@@ -16,7 +16,13 @@ export async function delete_(id) {
 
 export async function update(fish) {
   console.log(fish);
-  return await sql`UPDATE fish SET name = ${fish.name}, s_name = ${fish.s_name}, "desc" = ${fish.desc} WHERE id = ${fish.id}
+  return await sql`
+  UPDATE fish SET 
+    name = ${fish.name},
+    s_name = ${fish.s_name},
+    score = ${+fish.score},
+    "desc" = ${fish.desc}
+    WHERE id = ${fish.id}
   ` 
 }
 
